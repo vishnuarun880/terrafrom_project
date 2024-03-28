@@ -31,3 +31,7 @@ jobs:
       - name: Sync website with S3 bucket
         run: |
           aws s3 sync ./static/html s3://${{ env.BUCKET_NAME }}/ --delete
+
+      - name: Make S3 objects public
+        run: |
+          aws s3api put-object-acl --bucket ${{ env.BUCKET_NAME }} --acl public-read --recursive

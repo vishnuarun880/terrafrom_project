@@ -34,4 +34,7 @@ jobs:
 
       - name: Make S3 objects public
         run: |
-          aws s3api put-object-acl --bucket ${{ env.BUCKET_NAME }} --acl public-read --recursive
+          aws s3 ls s3://${{ env.BUCKET_NAME }} --recursive | while read -r line; do
+            key=$(echo $line | awk '{$1=$2=""; print $0}' | xargs)
+            aws s3api put-object-acl --bucket ${{ env.BUCKET_NAME }} --key $key --acl public-read
+          done

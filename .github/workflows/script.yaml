@@ -25,7 +25,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::854755582447:role/github_action_terraform
+          role-to-assume: arn:aws:iam::854755582447:role/githubaction_terraform
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Sync website with S3 bucket

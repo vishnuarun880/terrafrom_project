@@ -5,7 +5,7 @@ on:
       - main
   workflow_dispatch: {}
 env:
-  BUCKET_NAME: "www.vishnuarunwrk.xyz"
+  BUCKET_NAME: "vishnuarunwrk.xyz"
   AWS_REGION: "us-east-1"
 jobs:
   deploy:
